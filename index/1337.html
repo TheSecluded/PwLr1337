@@ -95,8 +95,8 @@
         }
 
         .character-image {
-            width: 600px;
-            height: 350px;
+            width: 600px; /* Increased width */
+            height: 350px; /* Adjusted height */
             border: 3px solid #4b5563;
             background-color: #374151;
             border-radius: 12px;
@@ -232,6 +232,12 @@
     </style>
 </head>
 <body>
+    <!-- Audio for background music -->
+    <audio id="background-audio" autoplay loop>
+        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pwlr-theme-YctXezqPmIkbVI4GcqSnYZRKjYQugg.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- Background Pattern -->
     <div class="background-pattern">
         <div class="pattern-box pattern-1"></div>
@@ -262,11 +268,6 @@
                     <div class="terminal-dot"></div>
                     <span class="terminal-title">discord.gg/N2T</span>
                 </div>
-                <!-- مشغل صوت مخفي -->
-                <audio autoplay loop style="display: none;">
-                    <source src="https://pfst.cf2.poecdn.net/base/audio/73a921292581e7d9192c2557f589177435a13ec7860f106877c26e1fc59a3872" type="audio/mpeg">
-                    متصفحك لا يدعم تشغيل الصوت.
-                </audio>
 
                 <!-- Terminal Content -->
                 <div class="terminal-content">
@@ -285,5 +286,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const audio = document.getElementById('background-audio');
+            if (audio) {
+                // Attempt to play the audio. In FiveM, this is more likely to succeed.
+                audio.play().catch(error => {
+                    console.log('Audio autoplay prevented (this might happen in some browser contexts, but should work in FiveM):', error);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
